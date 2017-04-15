@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :posts
   resources :stops
   resources :trips
   scope :api do
