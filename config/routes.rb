@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  resources :comments
-  resources :posts
-  resources :stops
-  resources :trips
   scope :api do
     resources :users, except: [:create]
+    resources :trips
+    resources :stops
+    resources :posts
+    resources :comments
     post 'register', to: 'authentications#register'
     post 'login', to: 'authentications#login'
   end
