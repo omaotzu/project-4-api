@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  mount_uploader :image, ImageUploader
   has_secure_password validations: false
   validates :username, presence: true
   validates :email, presence: true, uniqueness: true, unless: :oauth_login?
