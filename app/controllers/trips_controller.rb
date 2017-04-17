@@ -6,7 +6,7 @@ class TripsController < ApplicationController
 
     @trips = Trip.all
 
-    render json: @trips, include: ['stops.posts.comments']
+    render json: @trips, include: ['stops.posts.comments', 'user']
   end
 
   # GET /trips/1
