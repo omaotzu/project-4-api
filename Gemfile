@@ -20,9 +20,6 @@ gem 'puma', '~> 3.0'
 gem 'bcrypt', '~> 3.1.7'
 gem 'jwt'
 
-gem 'carrierwave'
-gem 'carrierwave-base64'
-gem 'fog-aws'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -31,6 +28,10 @@ gem 'fog-aws'
 gem 'rack-cors'
 gem 'active_model_serializers'
 gem 'httparty'
+
+gem 'carrierwave'
+gem 'carrierwave-base64'
+gem 'fog-aws'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

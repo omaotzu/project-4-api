@@ -1,6 +1,7 @@
 CarrierWave.configure do |config|
 
   config.fog_provider = 'fog/aws'
+
   config.fog_credentials = {
     provider: "AWS",
     region: "eu-west-1",
@@ -12,5 +13,6 @@ CarrierWave.configure do |config|
     config.root = Rails.root.join("tmp")
     config.cache_dir = "#{Rails.root}/tmp/uploads"
   end
+
   config.fog_directory = ENV["AWS_BUCKET_NAME"]
 end
