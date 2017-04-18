@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170418092346) do
+ActiveRecord::Schema.define(version: 20170418115503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 20170418092346) do
     t.datetime "updated_at", null: false
     t.integer  "trip_id"
     t.string   "country"
+    t.float    "lat"
+    t.float    "lng"
     t.index ["trip_id"], name: "index_stops_on_trip_id", using: :btree
   end
 
