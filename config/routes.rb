@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :stops
     resources :posts
     resources :comments
+    resources :images
     post 'register', to: 'authentications#register'
     post 'login', to: 'authentications#login'
   end

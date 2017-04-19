@@ -1,9 +1,6 @@
 class PostSerializer < ActiveModel::Serializer
-  attributes :id, :title, :body, :image_src
+  attributes :id, :title, :body
   belongs_to :stop
   has_many :comments
-
-  def image_src
-    object.image.url
-  end
+  has_many :images
 end
