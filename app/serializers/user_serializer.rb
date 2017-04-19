@@ -9,5 +9,5 @@ class UserSerializer < ActiveModel::Serializer
   def image_src
     object.image.url
   end
-  
+
 end
