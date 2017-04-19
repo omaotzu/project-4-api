@@ -1,5 +1,6 @@
 class StopsController < ApplicationController
   before_action :set_stop, only: [:show, :update, :destroy]
+  skip_before_action :authenticate_user!
 
   # GET /stops
   def index
