@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  acts_as_voter
   has_secure_password validations: false
   mount_uploader :image, ImageUploader
   validates :username, presence: true

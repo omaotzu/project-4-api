@@ -40,6 +40,30 @@ class PostsController < ApplicationController
     @post.destroy
   end
 
+  def upvote
+    @post = Post.find(params[:id])
+
+    if @post.upvote_by current_user
+      render json: @post
+    elsif
+      render json: 'Upvote Failed'
+    end
+    # redirect_to :back
+
+  end
+
+  def downvote
+    @post = Post.find(params[:id])
+
+    if @post.downvote_by current_user
+      render json: @post
+    elsif
+      render json: 'Downvote Failed'
+    end
+    # redirect_to :back
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post

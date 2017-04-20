@@ -3,7 +3,12 @@ Rails.application.routes.draw do
     resources :users, except: [:create]
     resources :trips
     resources :stops
-    resources :posts
+    resources :posts do
+      member do
+        put "upvote", to: "posts#upvote"
+        put "downvote", to: "posts#downvote"
+      end
+    end
     resources :comments
     resources :images
     post 'register', to: 'authentications#register'
