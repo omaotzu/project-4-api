@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :update, :destroy]
   skip_before_action :authenticate_user!
-  
+
   # GET /posts
   def index
     @posts = Post.all
@@ -17,6 +17,7 @@ class PostsController < ApplicationController
   # POST /posts
   def create
     @post = Post.new(post_params)
+    @post.user = current_user
 
     if @post.save
       render json: @post, status: :created, location: @post
@@ -47,6 +48,6 @@ class PostsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def post_params
-      params.require(:post).permit(:title, :body, :stop_id)
+      params.require(:post).permit(:title, :body, :stop_id, :user_id)
     end
 end
