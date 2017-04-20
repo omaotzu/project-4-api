@@ -4,7 +4,11 @@ class StopsController < ApplicationController
 
   # GET /stops
   def index
-    @stops = Stop.all
+    if params.key?(:lat) && params.key?(:lng)
+      @stops = Stop.where(lat: params[:lat], lng: params[:lng])
+    else
+      @stops = Stop.all
+    end
 
     render json: @stops
   end
