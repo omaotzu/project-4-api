@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 20170421141211) do
     t.integer  "user_id"
     t.integer  "value_for_money"
     t.integer  "night_life"
-    t.integer  "culture"
     t.integer  "hospitality"
     t.index ["stop_id"], name: "index_posts_on_stop_id", using: :btree
     t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
