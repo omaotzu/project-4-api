@@ -4,7 +4,11 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    @posts = Post.all
+    if params.key?(:stop_id)
+      @posts = Post.where(stop_id: params[:stop_id])
+    else
+      @posts = Post.all
+    end
 
     render json: @posts
   end
@@ -65,13 +69,11 @@ class PostsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
     def post_params
-      params.require(:post).permit(:title, :body, :stop_id, :user_id)
+      params.require(:post).permit(:title, :body, :stop_id, :user_id, :value_for_money, :night_life, :culture, :hospitality)
     end
 end

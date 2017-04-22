@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   acts_as_voter
+
   has_secure_password validations: false
   mount_uploader :image, ImageUploader
 
@@ -8,6 +9,7 @@ class User < ApplicationRecord
   validates :password, presence: true, confirmation: true, unless: :oauth_login?, on: :create
 
   has_many :trips, dependent: :destroy
+
   def oauth_login?
     github_id.present?
   end

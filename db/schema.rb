@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170420141741) do
+ActiveRecord::Schema.define(version: 20170421141211) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,10 +38,13 @@ ActiveRecord::Schema.define(version: 20170420141741) do
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "stop_id"
     t.integer  "user_id"
+    t.integer  "value_for_money"
+    t.integer  "night_life"
+    t.integer  "hospitality"
     t.index ["stop_id"], name: "index_posts_on_stop_id", using: :btree
     t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
   end
@@ -50,12 +53,16 @@ ActiveRecord::Schema.define(version: 20170420141741) do
     t.string   "place"
     t.date     "start_date"
     t.date     "leave_date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "trip_id"
     t.string   "country"
     t.float    "lat"
     t.float    "lng"
+    t.integer  "value_for_money"
+    t.integer  "night_life"
+    t.integer  "culture"
+    t.integer  "hospitality"
     t.index ["trip_id"], name: "index_stops_on_trip_id", using: :btree
   end
 
