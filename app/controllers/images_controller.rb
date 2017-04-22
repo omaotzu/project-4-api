@@ -1,6 +1,7 @@
 class ImagesController < ApplicationController
   before_action :set_image, only: [:show, :update, :destroy]
-
+  skip_before_action :authenticate_user!, only: [:index, :show]
+  
   # GET /images
   def index
     @images = Image.all
