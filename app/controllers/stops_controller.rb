@@ -21,7 +21,7 @@ class StopsController < ApplicationController
   # POST /stops
   def create
     @stop = Stop.new(stop_params)
-
+    @stop.user = current_user
     if @stop.save
       render json: @stop, status: :created, location: @stop
     else
@@ -51,6 +51,6 @@ class StopsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def stop_params
-      params.require(:stop).permit(:place, :start_date, :leave_date, :trip_id, :country, :lat, :lng, :value_for_money, :night_life, :culture, :hospitality)
+      params.require(:stop).permit(:place, :start_date, :leave_date, :trip_id, :country, :lat, :lng, :value_for_money, :night_life, :culture, :hospitality, :user_id)
     end
 end

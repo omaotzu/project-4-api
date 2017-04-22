@@ -9,6 +9,10 @@ class User < ApplicationRecord
   validates :password, presence: true, confirmation: true, unless: :oauth_login?, on: :create
 
   has_many :trips, dependent: :destroy
+  has_many :stops, dependent: :destroy
+  has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :images, dependent: :destroy
 
   def oauth_login?
     github_id.present?

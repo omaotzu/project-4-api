@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
-    render json: @user
+    render json: @user, include: ['trips.user', 'posts.user', 'stops.user', 'comments.user', 'images.user']
   end
 
   # POST /users
@@ -45,6 +45,6 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:username, :first_name, :last_name, :email, :base64)
+      params.require(:user).permit(:username, :password, :password_confirmation, :first_name, :last_name, :email, :base64)
     end
 end
