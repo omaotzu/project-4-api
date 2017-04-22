@@ -15,7 +15,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1
   def show
-    render json: @post
+    render json: @post, include: ['user', 'images.user', 'comments.user']
   end
 
   # POST /posts

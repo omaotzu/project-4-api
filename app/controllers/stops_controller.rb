@@ -10,12 +10,12 @@ class StopsController < ApplicationController
       @stops = Stop.all
     end
 
-    render json: @stops
+    render json: @stops, include: ['user', 'posts.user']
   end
 
   # GET /stops/1
   def show
-    render json: @stop
+    render json: @stop , include: ['user', 'posts.user']
   end
 
   # POST /stops
