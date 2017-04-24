@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-    attributes :id, :username, :full_name, :image_src
+    attributes :id, :username, :first_name, :last_name, :full_name, :image_src
     has_many :trips
 
   def full_name
