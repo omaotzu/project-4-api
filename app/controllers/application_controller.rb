@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-  before_action :authenticate_user!
+  before_action :for_real!
 
   def current_user
     @current_user ||= User.find(decoded_token[:id]) if id_found?
@@ -11,7 +11,7 @@ class ApplicationController < ActionController::API
     !!current_user
   end
 
-  def authenticate_user!
+  def for_real!
     render json: { errors: "Unauthorized" } , status: 401 unless user_signed_in?
   end
 
