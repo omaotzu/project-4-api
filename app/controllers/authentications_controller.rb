@@ -1,5 +1,5 @@
 class AuthenticationsController < ApplicationController
-  skip_before_action :authenticate_user!
+  skip_before_action :for_real!
 
   def register
     user = User.new(Uploader.upload(user_params))
