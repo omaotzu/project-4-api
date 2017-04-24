@@ -1,5 +1,5 @@
 class PostSerializer < ActiveModel::Serializer
-  attributes :id, :title, :body, :get_balanced_votes, :value_for_money, :night_life, :culture, :hospitality
+  attributes :id, :title, :body, :get_balanced_votes, :created_at, :value_for_money, :night_life, :culture, :hospitality
 
   belongs_to :user
   belongs_to :stop
